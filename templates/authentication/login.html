@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA_Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>creativescrapyard</title>
+  <!--bootstrap v5.2-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <!--style for voilate solid figures-->
+  <style>
+    body {
+      background-color: hsl(219, 26%, 26%);
+    }
+
+    .background-radial-gradient {
+      background-color: hsl(219, 26%, 26%);
+    }
+
+    #radius-shape-1 {
+      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+      height: 220px;
+      width: 220px;
+      top: -60px;
+      left: -130px;
+      background: radial-gradient(#6706a0, #a64bdb);
+      overflow: hidden;
+    }
+
+    #radius-shape-2 {
+      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+      bottom: -60px;
+      right: -110px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(#6706a0, #a64bdb);
+      overflow: hidden;
+    }
+
+    .bg-glass {
+      background-color: hsla(0, 0%, 100%, 0.9) !important;
+      backdrop-filter: saturate(200%) blur(25px);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NavBar-->
+  {% load static %}
+  <nav class="navbar navbar-dark bg-dark navbar-expand-md sticky-top">
+    <div class="container-fluid">
+      <a href="" class="navbar-brand dance-font fs-5 px-2"><img src="{% static 'images/cs-logo.png' %}" alt="" width="40" height="35"><span
+          class="text-white px-2">CreativeScrapyard</span> </a>
+    </div>
+  </nav>
+  <!-- Section: Design Block -->
+  <div class="container-fluid">
+  {% for message in messages%}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+  {% endfor%}
+  </div>
+  <section class="background-radial-gradient overflow-hidden">
+    <div class="container px-4 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+          <h1 class="mb-4 display-5 fw-bold ls-tight" style="color: hsl(221, 29%, 85%)">
+            <span style="color: hsl(218, 81%, 75%)"> We are Proud to have you in the largest creative & Artistic minds community around the world</span>
+          </h1>
+        </div>
+
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+          <div class="card bg-glass py-4 my-5">
+            <div class="card-body px-4 py-5 px-md-5">
+
+              <div class="mb-4">
+                <h3 style="color: hsl(218, 81%, 35%)">Login using Your Credentials </h3>
+              </div>
+              <form method="POST" action="/login">
+                {% csrf_token %}
+                <!-- user input -->
+                <div class="form-floating mb-4">
+                  <input type="text" name="username" class="form-control" id="floatingInput" placeholder="User Name">
+                  <label for="floatingInput">User Name</label>
+                </div>
+                <!-- Password input -->
+                <div class="form-floating mb-4">
+                  <input type="password" name="password" class="form-control" id="floatingPassword"
+                    placeholder="Password">
+                  <label for="floatingPassword">Password</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">
+                  Login
+                </button>
+
+                <!-- Register buttons -->
+                <div class="text-center">
+                  <p>(or) Not a member? then<a href="/index_sign" class="mx-1">Sign Up</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
