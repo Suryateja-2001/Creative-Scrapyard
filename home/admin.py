@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 #manually imported
 from .models import (
     Customer,

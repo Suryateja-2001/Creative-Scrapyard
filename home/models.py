@@ -1,3 +1,6 @@
+#database tables are created using models
+
+
 from distutils.command.upload import upload
 from tkinter import CASCADE
 from unicodedata import category, name
@@ -46,6 +49,8 @@ STATE_CHOICES =(
     ('Lakshadweep','Lakshadweep'),
     ('Puducherry','Puducherry'),
 )
+
+#many to one relationship (this is mutiple address of user for shipping)
 class Customer(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
