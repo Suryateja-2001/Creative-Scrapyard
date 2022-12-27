@@ -14,12 +14,12 @@ from .models import Customer,Creative_Items,Scrap_Items,Cart,Order_placed
 
 #@login_required
 #def home(request):
-#    return render(request,"authentication/home.html")
+#    return render(request,"home/home.html")
 class home(View):
     def get(self,request):
         creativesec  = Creative_Items.objects.filter()
         scrapyardsec = Scrap_Items.objects.filter()
-        return render(request,"authentication/home.html",{'creativesec':creativesec,'scrapyardsec':scrapyardsec})
+        return render(request,"home/home.html",{'creativesec':creativesec,'scrapyardsec':scrapyardsec})
 
 def logout(request):
     logout_user(request)
@@ -42,7 +42,7 @@ def contact(request):
         messages.success(request,"We have recived your request.we'll contact you soon")
         return redirect('/home/home')
 
-    return render(request,"authentication/contact.html")
+    return render(request,"home/contact.html")
     
 @login_required
 def about(request):
