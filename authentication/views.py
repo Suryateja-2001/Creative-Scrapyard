@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth import login as login_user
 from django.contrib.auth import authenticate
+import re
 
 """
 #These are imported for sending mail 
@@ -19,6 +20,36 @@ import smtplib
 
 
 # Create your views here.
+
+# Password Validations
+def passwordValidation(request,password): 
+    invalid = True
+    symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')']
+    
+    if len(password) < 8: 
+        messages.error(request,"Password does meet the minimum length requirements of 8 characters.")
+        invalid = False
+          
+    if len(password) > 18: 
+        messages.error(request,"Password should not exceed 18 characters.")
+        invalid = False
+    if not any(char.islower() for char in password): 
+        messages.error(request,"Password should have at least one lowercase letter.") 
+        invalid = False
+          
+    if not any(char.isupper() for char in password): 
+        messages.error(request,"Password should have at least one uppercase letter.")
+        invalid = False
+    if not any(char.isdigit() for char in password): 
+        messages.error(request,"Password should have at least one number.")
+        invalid = False
+          
+    if not any(char in symbols for char in password): 
+        messages.error(request,"Password should have at least one of the symbols: !@#$%^&*() ")
+        invalid = False
+
+    return invalid
+
 """
 def home(request):
     return HttpResponse("Hello home page")
@@ -34,7 +65,7 @@ def login(request):
         if user is not None:
             login_user(request,user)
             messages.success(request,"You have been successfully logged in ")
-            return redirect('/home/home')
+            return redirect('/home')
         else:
             messages.error(request,"Bad Credentials")
             return render(request,'authentication/login.html')
@@ -74,9 +105,8 @@ def index_sign(request):
             messages.error(request, "Passwords didn't matched!!")
             return redirect('/index_sign')
 
-         #checking password is alphanumeric or not.
-        if not password.isalnum():
-            messages.error(request,"password must be Alpha-Numeric!!!")
+         #checking validation of password .
+        if not passwordValidation(request,password):
             return redirect('/index_sign')
         
 

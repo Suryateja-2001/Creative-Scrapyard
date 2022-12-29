@@ -21,8 +21,7 @@ from home import views
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    #path('home', views.home, name="home"),
-    path('home',login_required(views.home.as_view()),name="home"),
+    path('',login_required(views.home.as_view()),name="home"),
     path('logout', views.logout, name="logout"),
     path('contact', views.contact, name="contact"),
     path('about', views.about, name="about"),

@@ -40,7 +40,7 @@ def contact(request):
         #saving the data from post method
         myuser.save()
         messages.success(request,"We have recived your request.we'll contact you soon")
-        return redirect('/home/home')
+        return redirect('/home')
 
     return render(request,"home/contact.html")
     
