@@ -7,7 +7,6 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth import login as login_user
 from django.contrib.auth import authenticate
-import re
 
 """
 #These are imported for sending mail 
