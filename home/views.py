@@ -45,4 +45,4 @@ def contact(request):
     
 @login_required
 def about(request):
-    return HttpResponse('hello this is about page.')
+    return render(request,"home/about.html")
