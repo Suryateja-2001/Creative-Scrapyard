@@ -79,42 +79,175 @@
 {% block creative_carousel %}
     <!--product carousel for creative section-->
     <!-- 1st Product Slider -->
-    <div class="m-3">
-        <h2>Creative Products</h2>
-        <!-- Slider 1 -->
-        <div class="owl-carousel" id="slider1">
-            {% for c in creativesec %} 
-            <a href="#link" class="btn">
-                <div class="item">
-                    <img src="{{ c.product_image.url }}" alt="" height="300px">
-                    <span class="fw-bold">{{ c.title}}</span>
-                    <br>
-                    <span class="fs-5">Rs.{{ c.discount_price}}</span>
+    <main class="main">
+        <section class="bg-grey-9 section-padding">
+            <div class="container pt-15 pb-25">
+                <div class="heading-tab d-flex">
+                    <div class="heading-tab-left wow fadeIn animated">
+                        <h3 class="section-title mb-20"><span>Creative</span> Products</h3>
+                    </div>
                 </div>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
+                
+                <div class="row">
+
+                    <!--Should be used in home page-->
+                    <div class="col-lg-3 d-none d-lg-flex">
+                        <div class="banner-img style-2 wow fadeIn animated">
+                            <img src="{% static 'imgs/banner/banner-9.jpg'%}" alt="">
+                            <div class="banner-text">
+                                <span>Artistic Area</span>
+                                <h4 class="mt-5" style="color:#40BAA4;">Save 17% on <br>During Hot sales</h4>
+                                <a href="#" class="text-white">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-9 col-md-12">
+                        <div class="tab-content wow fadeIn animated" id="myTabContent-1">
+                            <div class="tab-pane fade show active" id="tab-one-1" role="tabpanel" aria-labelledby="tab-one-1">
+                                <div class="carausel-4-columns-cover arrow-center position-relative">
+                                    <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
+
+                                    <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
+
+                                        {% for c in creativesec %} 
+                                        <div class="product-cart-wrap">
+                                            <div class="product-img-action-wrap">
+                                                <div class="product-img product-img-zoom">
+                                                    <a href="#">
+                                                        <img style="height: 250px;" src="{{ c.product_image.url }}" alt="">
+                                                    </a>
+                                                </div>
+                                                
+                                                <div class="product-action-1">
+                                                    <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#"><i class="fi-rs-heart"></i></a>
+                                                </div>
+                                                <div class="product-badges product-badges-position product-badges-mrg">
+                                                    <span class="hot">Hot</span>
+                                                </div>
+                                            </div>
+                                            <div style="height: 150px;" class="product-content-wrap">
+                                                <div style="overflow:hidden;max-height:20px;" class="product-category" title="Brand Name">
+                                                    <a>{{ c.brand}}</a>
+                                                </div>
+                                                <h2 style="overflow:hidden;max-height:20px;"><a href="#">{{ c.title}}</a></h2>
+                                                <div class="rating-result" title="UserRating">
+                                                    <span>
+                                                        <span></span>
+                                                    </span>
+                                                </div>
+                                                <div class="product-price" >
+                                                    <span>Rs.{{ c.discount_price}} </span>
+                                                    <span class="old-price" >Rs.{{ c.selling_price}}</span>
+                                                </div>
+                                                <div class="product-action-1 show" >
+                                                    <a aria-label="Add To Cart" class="action-btn hover-up" href="#"><i class="fi-rs-shopping-bag-add"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End tab-pane-->
+                        </div>
+                        <!--End tab-content-->
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+        
+    </main>
     <!-- End 1st Product Slider -->
 {% endblock%}
 
 {% block scrapyard_carousel %}
     <!-- 2nd Product Slider -->
-    <div class="m-3">
-        <h2>Scrap Items</h2>
-        <!-- Slider 2 -->
-        <div class="owl-carousel" id="slider2">
-            {% for s in scrapyardsec %} 
-            <a href="#link" class="btn">
-                <div class="item ">
-                    <img src="{{ s.product_images.url }}" alt="" height="300px">
-                    <span class="fw-bold">{{ s.title}}</span>
-                    <br>
-                    <span class="fs-5">Rs. {{ s.discount_price}}</span>
+    <main class="main">
+        <section class="bg-grey-9 section-padding">
+            <div class="container pt-15 pb-25">
+                <div class="heading-tab d-flex">
+                    <div class="heading-tab-left wow fadeIn animated">
+                        <h3 class="section-title mb-20"><span>Scrap</span> Products</h3>
+                    </div>
                 </div>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
+                
+                <div class="row">
+
+                    <!--Should be used in home page-->
+                    <div class="col-lg-3 d-none d-lg-flex">
+                        <div class="banner-img style-2 wow fadeIn animated">
+                            <img style="height:100%" src="{% static 'imgs/banner/scrap-car_banner.jpg'%}" alt="">
+                            <div class="banner-text">
+                                <span>Artistic Area</span>
+                                <h4 class="mt-5 text-info">Save 28% on <br>During Scrap-Deal sales</h4>
+                                <a href="#" class="text-white">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-9 col-md-12">
+                        <div class="tab-content wow fadeIn animated" id="myTabContent-1">
+                            <div class="tab-pane fade show active" id="tab-one-1" role="tabpanel" aria-labelledby="tab-one-1">
+                                <div class="carausel-4-columns-cover arrow-center position-relative">
+                                    <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-2-arrows"></div>
+
+                                    <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns-2">
+
+                                        {% for s in scrapyardsec %} 
+                                        <div class="product-cart-wrap">
+                                            <div class="product-img-action-wrap">
+                                                <div class="product-img product-img-zoom">
+                                                    <a href="#">
+                                                        <img style="height: 250px;" src="{{ s.product_images.url }}" alt="">
+                                                    </a>
+                                                </div>
+                                                
+                                                <div class="product-action-1">
+                                                    <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#"><i class="fi-rs-heart"></i></a>
+                                                </div>
+                                                <div class="product-badges product-badges-position product-badges-mrg">
+                                                    <span class="hot">Hot</span>
+                                                </div>
+                                            </div>
+                                            <div style="height: 150px;" class="product-content-wrap">
+                                                <div style="overflow:hidden;max-height:20px;" class="product-category" title="Brand Name">
+                                                    <a>{{ s.brand}}</a>
+                                                </div>
+                                                <h2 style="overflow:hidden;max-height:20px;"><a href="#">{{ s.title}}</a></h2>
+                                                <div class="rating-result" title="UserRating">
+                                                    <span>
+                                                        <span></span>
+                                                    </span>
+                                                </div>
+                                                <div class="product-price" >
+                                                    <span>Rs.{{ s.discount_price}} </span>
+                                                </div>
+                                                <div class="product-action-1 show" >
+                                                    <a aria-label="Contact" class="action-btn hover-up" href="#"><i class="fa fa-id-badge" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End tab-pane-->
+                        </div>
+                        <!--End tab-content-->
+                    </div>
+                    <!--End Col-lg-9-->
+                </div>
+            </div>
+        </section>
+        
+    </main>
     <!-- End 2nd Product Slider -->
 {% endblock  %}

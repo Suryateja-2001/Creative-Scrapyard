@@ -1,0 +1,192 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA_Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Creative ScrapYard | {% block title %} {% endblock title %}</title>
+
+        <!--bootstrap v5.2 cdn-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <!--fontawesom v6.2 cdn-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"
+         type="text/css">
+        <!-- custom css -->
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="{% static 'css/main.css'%}">
+
+        <!--Style blocks for differnt pages-->
+        {% block style_for_scrap %}{% endblock style_for_scrap %}
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-md sticky-top shadow ">
+            <div class="container-fluid d-block">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex flex-row">
+                        <!--this is for toggler when screen size is small or below medium-->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#creativescrapyard-navbar" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a href="{% url 'home'%}" class="navbar-brand dance-font fs-5 px-2"><img src="{% static 'images/cs-logo.png' %}" alt="" width="40" height="35"><span class="text-white px-2">CreativeScrapyard</span> </a>
+                    </div>
+                    <div class="mt-2 justify-content-end">
+                        <ul class="navbar-nav nav ">
+                            <li class="nav-item ">
+                                <a class="nav-link text-bg-dark mx-2" href="#profile"><i class="fa-regular fa-circle-user"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-bg-dark mx-2" href="#cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="container d-block">
+                    <!--navbar items-->
+                    <div class="collapse navbar-collapse justify-content-center" id="creativescrapyard-navbar">
+                        <ul class="navbar-nav nav nav-tabs mt-2">
+                            <li class="nav-item">
+                                <a class="nav-link text-bg-dark px-2" href="{% url 'creativesection'%}">Creative Section</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-bg-dark px-2" href="{% url 'scrapsection'%}">ScrapYard Section</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-bg-dark px-2" href="{% url 'contact'%}">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-bg-dark px-2" href="{% url 'about'%}">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-bg-dark px-2" href="{% url 'logout'%}">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+        {% block scrap_cards %} {% endblock scrap_cards %}
+
+
+
+
+        <!--footer-->
+        <footer class="page-footer pt-4 mt-5">
+            <div class="container-fluid text-center">
+            <!-- Grid row -->
+            <div class="row p-5">
+        
+                <!-- Grid column 1 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 p-3">
+                <div>
+                    <h3>Creative Scrapyard</h3>
+        
+                    <p>
+                    <a class="footer-link" href="{% url 'home'%}">Home</a>
+                    -
+                    <a class="footer-link" href="{% url 'contact'%}">Contact</a>
+                    -
+                    <a class="footer-link" href="{% url 'about'%}">About Us</a>
+                    </p>
+        
+                    <p>Creative ScrapYard &copy; 2023</p>
+                </div>
+        
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column 2 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 p-3">
+                <div class="row">
+                    <div class="col-4 text-right">
+                    <i class="fa fa-map-marker fa-lg"></i>
+                    </div>
+                    <div class="col-8 text-left">
+                    <p>PARUL UNIVERSITY ,Vadodara</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 text-right">
+                    <i class="fa fa-phone fa-lg"></i>
+                    </div>
+                    <div class="col-8 text-left">
+                    <p>+91 7036938117</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 text-right">
+                    <i class="fa fa-envelope fa-lg"></i>
+                    </div>
+                    <div class="col-8 text-left">
+                    <p><a class="footer-link"
+                        href="mail to:creativescrapyard2023@gmail.com">CreativeScrapyard2023@gmail.com</a>
+                    </p>
+                    </div>
+                </div>
+        
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column 3 -->
+                <div class="col-lg-4 col-md-6 col-sm-6 p-3">
+                <h5>About the company</h5>
+                <p>Creative Scrapyard is an e-commerce website that aims to be a platform where people
+                    can sell their old or scrap items.<br><i><u>Feel Free To Buy
+                        Anything.</u></i></p>
+        
+        
+        
+                <div>
+                    <a class="footer-link" href=""><i
+                        class="fab fa-facebook-f fa-lg p-1"></i></a>
+                    <a class="footer-link" href=""><i class="fab fa-twitter fa-lg p-1"></i></a>
+                    <a class="footer-link" href=""><i
+                        class="fab fa-instagram fa-lg p-1"></i></a>
+                    <a class="footer-link" href=""><i class="fab fa-github fa-lg p-1"></i></a>
+                </div>
+        
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+            </div>
+        
+            <!-- Copyright -->
+            <hr id="footer-hr">
+        
+            <div class="footer-copyright text-center py-3">© 2020-2023 Copyright:
+            <a class="footer-link" href="{% url 'home'%}">Creative Scrapyard </a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+        <!--bootstrap js cdn-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+        <!--script-link for product carousel-->
+
+        <!-- Vendor JS-->
+        <script src="{% static 'js/vendor/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'js/plugins/jquery.syotimer.min.js' %}"></script>
+        <script src="{% static 'js/plugins/wow.js' %}"></script>
+        <script src="{% static 'js/plugins/slick.js' %}"></script>
+        <script src="{% static 'js/plugins/jquery-ui.js' %}"></script>
+        <script src="{% static 'js/plugins/perfect-scrollbar.js' %}"></script>
+        <script src="{% static 'js/plugins/magnific-popup.js' %}"></script>
+        <script src="{% static 'js/plugins/images-loaded.js' %}"></script>
+        <script src="{% static 'js/plugins/scrollup.js' %}"></script>
+        <script src="{% static 'js/plugins/jquery.elevatezoom.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <!-- Template  JS -->
+        <script src="{% static 'js/main.js'%}"></script>
+        <script src="{% static 'js/shop.js'%}"></script>
+    </body>
+
+</html>

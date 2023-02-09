@@ -26,6 +26,8 @@ urlpatterns = [
     path('login',include('authentication.urls')),
     path('accounts/',include('authentication.urls')),
     path('home/',include('home.urls')),
+    path('creativesection/',include('creativesection.urls')),
+    path('scrapsection/',include('scrapsection.urls')),
 ]
 
 if settings.DEBUG:

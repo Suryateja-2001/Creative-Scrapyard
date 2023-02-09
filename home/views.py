@@ -1,5 +1,4 @@
 from http.client import HTTPResponse
-from django.shortcuts import render
 
 #manually imported
 from django.contrib.auth.models import User

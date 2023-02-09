@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'home',
+    'creativesection',
+    'scrapsection',
 ]
 
 MIDDLEWARE = [
