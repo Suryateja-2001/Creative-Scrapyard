@@ -1,0 +1,36 @@
+{% extends 'scrap_pages/base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+
+{% block style_for_scrap %}
+    <style>
+        .page-footer {
+            background-color: #222222;
+            padding-top: 100px;
+            color: white;
+        }
+        a{
+            text-decoration:none;
+            color:#ffffff
+        }
+    </style>
+{% endblock style_for_scrap %}
+
+{% block Product_Detail %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-6 text-center align-self-center">
+   <img src="{{product.product_images.url}}" alt="" class="img-fluid img-thumbnail">
+  </div>
+  <div class="col-sm-5 offset-sm-1">
+   <h2>Title: {{product.title}}</h2>
+   <hr>
+   <h4>Brand: <small class="fw-light ">{{product.brand}}</small></h4> <br>
+   <h4>category: <small class="fw-light ">{{product.category}}</small></h4> <br>
+   <p><h4>Product Description: </h4>{{product.description}}</p> <br>
+   <h4>Rs. {{product.discount_price}} <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></h4> <br>
+   <a href="#" class="btn btn-primary shadow px-5 py-2">Contact</a>
+  </div>
+ </div>
+</div>
+{% endblock Product_Detail %}
