@@ -22,4 +22,5 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('', views.scrapsection, name="scrapsection"),
+    path('scrapProductDetail/<int:pk>', views.scrapproductDetailView.as_view(), name="scrapProductDetail"),
 ]
