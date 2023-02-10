@@ -22,4 +22,6 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('', views.creativesection, name="creativesection"),
+    path('productDetail/<int:pk>', views.productDetailView.as_view(), name="productDetail"),
+    path('cart',views.cart,name="cart"),
 ]
