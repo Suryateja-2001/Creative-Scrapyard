@@ -122,7 +122,7 @@
                                                 </div>
                                                 
                                                 <div class="product-action-1">
-                                                    <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                                    <a aria-label="Quick view" class="action-btn small hover-up" href="{% url 'productDetail' c.id%}"><i class="fi-rs-eye"></i></a>
                                                     <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#"><i class="fi-rs-heart"></i></a>
                                                 </div>
                                                 <div class="product-badges product-badges-position product-badges-mrg">
@@ -144,7 +144,11 @@
                                                     <span class="old-price" >Rs.{{ c.selling_price}}</span>
                                                 </div>
                                                 <div class="product-action-1 show" >
-                                                    <a aria-label="Add To Cart" class="action-btn hover-up" href="#"><i class="fi-rs-shopping-bag-add"></i></a>
+                                                    <form action="/creativesection/cart">
+                                                        <input type="hidden" name="prod_id" value={{product.id}} id="prod_id">
+                                                        <button type="submit" aria-label="Add To Cart" class="action-btn hover-up"><i class="fi-rs-shopping-bag-add" ></i></button>
+                                                        
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,7 +214,7 @@
                                                 </div>
                                                 
                                                 <div class="product-action-1">
-                                                    <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                                    <a aria-label="Quick view" class="action-btn small hover-up" href="{% url 'scrapProductDetail' s.id %}"><i class="fi-rs-eye"></i></a>
                                                     <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#"><i class="fi-rs-heart"></i></a>
                                                 </div>
                                                 <div class="product-badges product-badges-position product-badges-mrg">

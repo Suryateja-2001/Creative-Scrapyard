@@ -37,10 +37,10 @@
                     <div class="mt-2 justify-content-end">
                         <ul class="navbar-nav nav ">
                             <li class="nav-item ">
-                                <a class="nav-link text-bg-dark mx-2" href="#profile"><i class="fa-regular fa-circle-user"></i></a>
+                                <a class="nav-link text-bg-dark mx-2" href="{% url 'profile' %}"><i class="fa-regular fa-circle-user"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-bg-dark mx-2" href="#cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <a class="nav-link text-bg-dark mx-2" href="{% url 'showcart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -62,9 +62,6 @@
                             <li class="nav-item">
                                 <a class="nav-link text-bg-dark px-2" href="{% url 'about'%}">About Us</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-bg-dark px-2" href="{% url 'logout'%}">Logout</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -76,6 +73,7 @@
         {% block creative_cards %} {% endblock creative_cards %}
         {% block Product_Detail %} {% endblock Product_Detail %}
         {% block cart %} {% endblock cart %}
+        {% block checkout_detail %} {% endblock checkout_detail %}
 
 
 
@@ -187,6 +185,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <!-- Template  JS -->
         <script src="{% static 'js/main.js'%}"></script>
+        <script src="{% static 'js/script.js'%}"></script>
         <script src="{% static 'js/shop.js'%}"></script>
     </body>
 
