@@ -2,8 +2,8 @@ from django.shortcuts import render
 from home.models import Scrap_Items
 from django.views import View
 from django.core.mail import send_mail
-from django.conf import settings
-from home.models import Scrap_Items
+from home.models import Scrap_Items,Creative_Items
+from django.contrib import messages
 
 # Create your views here.
 def scrapsection(request):
@@ -63,4 +63,7 @@ def contactseller(request,pk):
         send_mail(
             Title,message,'settings.EMAIL_HOST_USER',email,fail_silently=False
         )
-    return render(request,'scrap_pages/product_detail.html',{'product':product})
+        messages.warning(request,"Seller has be Contacted")
+        creativesec  = Creative_Items.objects.filter()
+        scrapyardsec = Scrap_Items.objects.filter()
+    return render(request,'home/home.html',{'creativesec':creativesec,'scrapyardsec':scrapyardsec})
