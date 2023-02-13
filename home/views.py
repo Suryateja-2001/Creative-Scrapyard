@@ -9,6 +9,7 @@ from django.contrib.auth import logout as logout_user
 from django.contrib.auth.decorators import login_required
 from django.views import View
 from .models import Customer,Creative_Items,Scrap_Items,Cart,Order_placed
+from .forms import CustomerProfileForm
 # Create your views here.
 
 #@login_required
@@ -46,3 +47,33 @@ def contact(request):
 @login_required
 def about(request):
     return render(request,"home/about.html")
+
+class profile(View):
+    def get(self,request):
+        form = CustomerProfileForm()
+        return render(request,"home/profile.html",{'form':form})
+    
+    def post(self,request):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            name = form.cleaned_data['name']
+            locality = form.cleaned_data['locality']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            zipcode = form.cleaned_data['zipcode']
+
+            save = Customer(user = user,name = name,locality = locality,city =city,state = state,zipcode = zipcode)
+            save.save()
+            messages.success(request,'Successfully added new Address')
+        return render(request,"home/profile.html",{'form':form})
+
+@login_required
+def address(request):
+    add = Customer.objects.filter(user=request.user)
+    return render(request,"home/address.html",{'add':add})
+
+@login_required
+def order(request):
+    op = Order_placed.objects.filter(user=request.user)
+    return render(request,"home/orders.html",{'order_placed':op})

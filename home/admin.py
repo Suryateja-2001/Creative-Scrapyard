@@ -24,8 +24,8 @@ class Scrap_ItemsModelAdmin(admin.ModelAdmin):
 
 @admin.register(Cart)
 class CartModelAdmin(admin.ModelAdmin):
-    list_display = ['id','user','scrap','creative','quantity']
+    list_display = ['id','user','creative','quantity']
 
 @admin.register(Order_placed)
 class Order_placedModelAdmin(admin.ModelAdmin):
-    list_display = ['id','user','creative','scrap','quantity','ordered_date','status']
+    list_display = ['id','user','creative','quantity','ordered_date','status']

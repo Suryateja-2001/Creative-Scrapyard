@@ -107,12 +107,15 @@ class Scrap_Items(models.Model):
 #CART MODEL
 class Cart(models.Model):
     user     = models.ForeignKey(User,on_delete=models.CASCADE)
-    scrap    = models.ForeignKey(Scrap_Items,on_delete=models.CASCADE)
     creative = models.ForeignKey(Creative_Items,on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return str(self.id)
+    
+    @property
+    def total_cost(self):
+        return self.quantity* self.creative.discount_price
 
 #STATUS MODEL
 STATUS_CHOICES = (
@@ -127,7 +130,9 @@ class Order_placed(models.Model):
     user         = models.ForeignKey(User,on_delete = models.CASCADE)
     customer     = models.ForeignKey(Customer,on_delete = models.CASCADE)
     creative     = models.ForeignKey(Creative_Items, on_delete = models.CASCADE)
-    scrap        = models.ForeignKey(Scrap_Items,on_delete = models.CASCADE)
     quantity     = models.PositiveIntegerField(default = 1)
     ordered_date = models.DateTimeField(auto_now_add = True)
     status       = models.CharField(max_length=50,choices=STATUS_CHOICES,default='Pending')
+    @property
+    def total_cost(self):
+        return self.quantity* self.creative.discount_price

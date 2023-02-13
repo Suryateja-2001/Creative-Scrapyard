@@ -25,4 +25,7 @@ urlpatterns = [
     path('logout', views.logout, name="logout"),
     path('contact', views.contact, name="contact"),
     path('about', views.about, name="about"),
+    path('profile',login_required(views.profile.as_view()),name='profile'),
+    path('address',views.address,name="address"),
+    path('order',views.order,name="order"),
 ]

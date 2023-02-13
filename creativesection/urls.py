@@ -22,6 +22,17 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('', views.creativesection, name="creativesection"),
+    path('potraits', views.potraits, name="potraits"),
+    path('paperart', views.paperart, name="paperart"),
+    path('metalart', views.metalart, name="metalart"),
+    path('glassart', views.glassart, name="glassart"),
+    path('plasticart', views.plasticart, name="plasticart"),
     path('productDetail/<int:pk>', views.productDetailView.as_view(), name="productDetail"),
     path('cart',views.cart,name="cart"),
+    path('showcart',views.showcart,name="showcart"),
+    path('pluscart',views.plus_cart,name='plus_cart'),
+    path('minuscart',views.minus_cart,name='minus_cart'),
+    path('removecart',views.remove_cart,name='remove_cart'),
+    path('checkout',views.checkout,name='checkout'),
+    path('sucessfullyordered',views.sucessfullyordered,name='sucessfullyordered'),
 ]
