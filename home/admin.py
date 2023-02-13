@@ -20,7 +20,7 @@ class Creative_ItemsModelAdmin(admin.ModelAdmin):
 
 @admin.register(Scrap_Items)
 class Scrap_ItemsModelAdmin(admin.ModelAdmin):
-    list_display = ['id','title','selling_price','discount_price','description','brand','category','product_images','last_modified']
+    list_display = ['id','title','selling_price','seller_email','discount_price','description','brand','category','product_images','last_modified']
 
 @admin.register(Cart)
 class CartModelAdmin(admin.ModelAdmin):

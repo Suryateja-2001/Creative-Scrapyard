@@ -100,6 +100,7 @@ class Scrap_Items(models.Model):
     category       = models.CharField(choices=SCRAP_CHOICES,max_length=2)
     product_images = models.ImageField(upload_to ='scrap_img')
     last_modified  = models.DateTimeField(auto_now_add = True)
+    seller_email   = models.EmailField(default = 'EnterYourEmail@gmail.com')
 
     def __str__(self):
         return str(self.id)

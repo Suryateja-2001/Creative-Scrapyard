@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from home.models import Scrap_Items
 from django.views import View
+from django.core.mail import send_mail
+from django.conf import settings
+from home.models import Scrap_Items
 
 # Create your views here.
 def scrapsection(request):
@@ -49,3 +52,15 @@ class scrapproductDetailView(View):
     def get(self,request,pk):
         product = Scrap_Items.objects.get(pk=pk)
         return render(request,'scrap_pages/product_detail.html',{'product':product})
+
+def contactseller(request,pk):
+    if request.method == 'POST':
+        pd_id = str(pk)
+        product = Scrap_Items.objects.get(pk = pk)
+        email = [product.seller_email]
+        Title = 'Intrested in Buying '+product.title
+        message = " Hello, This is " + request.user.first_name + " !! \n" + "I am Interested in buying your advertised product.The Product Id is "+ pd_id + " and name of the Product is "+ product.title + "\nThis is my email address: "+ request.user.email
+        send_mail(
+            Title,message,'settings.EMAIL_HOST_USER',email,fail_silently=False
+        )
+    return render(request,'scrap_pages/product_detail.html',{'product':product})

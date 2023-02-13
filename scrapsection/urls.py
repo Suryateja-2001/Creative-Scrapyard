@@ -28,4 +28,5 @@ urlpatterns = [
     path('woodenitems', views.woodenitems, name="woodenitems"),
     path('metalitems', views.metalitems, name="metalitems"),
     path('scrapProductDetail/<int:pk>', views.scrapproductDetailView.as_view(), name="scrapProductDetail"),
+    path('contactseller/<int:pk>',views.contactseller, name="contactseller"),
 ]
